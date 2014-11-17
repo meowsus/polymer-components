@@ -1,0 +1,1457 @@
+// ==========================================================================
+// content
+// ==========================================================================
+
+// ===============================================
+// wl-icon (for @include)
+// ===============================================
+
+@mixin wl-icon {
+  @include ir;
+  @include font-smoothing;
+  display: inline-block;
+  position: relative;
+  margin: 0;
+  width: 44px;
+  height: 44px;
+  line-height: 1;
+  font-size: 44px;
+  font-family: $icon-font;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  text-align: center;
+  &:before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    text-indent: 0;
+    content: '\f00d';
+  }
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+// ===============================================
+// wl-icon (for @extend)
+// ===============================================
+
+%wl-icon {
+  @include wl-icon;
+}
+
+// ===============================================
+// wl-icon (class selector)
+// ===============================================
+
+.wl-icon {
+  @extend %wl-icon;
+}
+
+// ===============================================
+// wl-icon modifiers (for @include)
+// ===============================================
+
+@mixin wl-icon--speech-bubble { @include wl-icon; &:before { content: '\f075' } }
+@mixin wl-icon--check-mark { @include wl-icon; &:before { content: '\f05d' } }
+@mixin wl-icon--exclamation { @include wl-icon; &:before { content: '\f06a' } }
+@mixin wl-icon--x { @include wl-icon; &:before { content: '\f00d' } }
+@mixin wl-icon--envelope { @include wl-icon; &:before { content: '\e600' } }
+@mixin wl-icon--facebook { @include wl-icon; &:before { content: '\f082' } }
+@mixin wl-icon--twitter { @include wl-icon; &:before { content: '\f081' } }
+@mixin wl-icon--pinterest { @include wl-icon; &:before { content: '\f0d3' } }
+@mixin wl-icon--google-plus { @include wl-icon; &:before { content: '\f0d4' } }
+
+// ===============================================
+// wl-icon modifiers (for @extend)
+// ===============================================
+
+%wl-icon--speech-bubble { @include wl-icon--speech-bubble; }
+%wl-icon--check-mark { @include wl-icon--check-mark; }
+%wl-icon--exclamation { @include wl-icon--exclamation; }
+%wl-icon--x { @include wl-icon--x; }
+%wl-icon--envelope { @include wl-icon--envelope; }
+%wl-icon--facebook { @include wl-icon--facebook; }
+%wl-icon--twitter { @include wl-icon--twitter; }
+%wl-icon--pinterest { @include wl-icon--pinterest; }
+%wl-icon--google-plus { @include wl-icon--google-plus; }
+
+// ===============================================
+// wl-icon modifiers (class selector)
+// ===============================================
+
+@each $name in 'speech-bubble', 'check-mark', 'exclamation', 'x', 'envelope', 'facebook', 'twitter', 'pinterest', 'google-plus' {
+  .wl-icon--#{$name} {
+    @extend %wl-icon--#{$name};
+  }
+}
+
+// ===============================================
+// wl-loading (for @include)
+// ===============================================
+
+@mixin wl-loading {
+  margin: 0;
+  padding: 15px;
+  text-align: center;
+  img {
+    padding: 5px;
+    background: $background-color;
+  }
+}
+
+// ===============================================
+// wl-loading (for @extend)
+// ===============================================
+
+%wl-loading {
+  @include wl-loading;
+}
+
+// ===============================================
+// wl-loading (class selector)
+// ===============================================
+
+.wl-loading {
+  @extend %wl-loading;
+}
+
+// ===============================================
+// wl-heading (for @include)
+// ===============================================
+
+@mixin wl-heading {
+  display: block; // for use on fieldset > legend > span
+  margin: 0 0 15px;
+  font-weight: bold;
+  font-size: 28px;
+}
+
+// ===============================================
+// wl-heading (for @extend)
+// ===============================================
+
+%wl-heading {
+  @include wl-heading;
+}
+
+// ===============================================
+// wl-heading (class selector)
+// ===============================================
+
+.wl-heading {
+  @extend %wl-heading;
+}
+
+// ===============================================
+// wl-heading (element selector)
+// ===============================================
+
+h1 {
+  @extend %wl-heading;
+}
+
+// ===============================================
+// wl-heading--2 (for @include)
+// ===============================================
+
+@mixin wl-heading--2 {
+  @include wl-heading;
+  font-size: 21px;
+}
+
+// ===============================================
+// wl-heading--2 (for @extend)
+// ===============================================
+
+%wl-heading--2 {
+  @include wl-heading--2;
+}
+
+// ===============================================
+// wl-heading--2 (class selector)
+// ===============================================
+
+.wl-heading--2 {
+  @extend %wl-heading--2;
+}
+
+// ===============================================
+// wl-heading--2 (element selector)
+// ===============================================
+
+h2 {
+  @extend %wl-heading--2;
+}
+
+// ===============================================
+// wl-heading--3 (for @include)
+// ===============================================
+
+@mixin wl-heading--3 {
+  @include wl-heading;
+  font-size: 16px;
+}
+
+// ===============================================
+// wl-heading--3 (for @extend)
+// ===============================================
+
+%wl-heading--3 {
+  @include wl-heading--3;
+}
+
+// ===============================================
+// wl-heading--3 (class selector)
+// ===============================================
+
+.wl-heading--3 {
+  @extend %wl-heading--3;
+}
+
+// ===============================================
+// wl-heading--3 (element selector)
+// ===============================================
+
+h3 {
+  @extend %wl-heading--3;
+}
+
+// ===============================================
+// wl-heading--4 (for @include)
+// ===============================================
+
+@mixin wl-heading--4 {
+  @include wl-heading;
+  font-size: 14px;
+}
+
+// ===============================================
+// wl-heading--4 (for @extend)
+// ===============================================
+
+%wl-heading--4 {
+  @include wl-heading--4;
+}
+
+// ===============================================
+// wl-heading--4 (class selector)
+// ===============================================
+
+.wl-heading--4 {
+  @extend %wl-heading--4;
+}
+
+// ===============================================
+// wl-heading--4 (element selector)
+// ===============================================
+
+h4 {
+  @extend %wl-heading--4;
+}
+
+// ===============================================
+// wl-heading--5 (for @include)
+// ===============================================
+
+@mixin wl-heading--5 {
+  @include wl-heading;
+  font-size: 12px;
+}
+
+// ===============================================
+// wl-heading--5 (for @extend)
+// ===============================================
+
+%wl-heading--5 {
+  @include wl-heading--5;
+}
+
+// ===============================================
+// wl-heading--5 (class selector)
+// ===============================================
+
+.wl-heading--5 {
+  @extend %wl-heading--5;
+}
+
+// ===============================================
+// wl-heading--5 (element selector)
+// ===============================================
+
+h5 {
+  @extend %wl-heading--5;
+}
+
+// ===============================================
+// wl-heading--6 (for @include)
+// ===============================================
+
+@mixin wl-heading--6 {
+  @include wl-heading;
+  font-size: 10px;
+}
+
+// ===============================================
+// wl-heading--6 (for @extend)
+// ===============================================
+
+%wl-heading--6 {
+  @include wl-heading--6;
+}
+
+// ===============================================
+// wl-heading--6 (class selector)
+// ===============================================
+
+.wl-heading--6 {
+  @extend %wl-heading--6;
+}
+
+// ===============================================
+// wl-heading--6 (element selector)
+// ===============================================
+
+h6 {
+  @extend %wl-heading--6;
+}
+
+// ===============================================
+// wl-table (for @include)
+// ===============================================
+
+@mixin wl-table {
+  margin: 0 0 15px;
+  width: 100%;
+  border-collapse: collapse;
+
+  // cells
+  td {
+    background: $background-color;
+    border: 1px solid $border-color;
+    vertical-align: top;
+  }
+
+  // header cells
+  th {
+    text-align: left;
+    background: $table-header-bg-color;
+    border: 1px solid $border-color;
+  }
+
+  // paragraphs
+  p {
+    margin: 0;
+  }
+  p + p {
+    margin-top: 8px;
+  }
+
+  // discounts
+  strong {
+    color: $discount-color;
+    white-space: nowrap;
+  }
+
+  // inline forms
+  .wl-inline-form {
+    p,
+    p + p {
+      margin: 0 0 3px; // undo margin-top from above and separate field and button if they stack
+    }
+  }
+}
+
+// ===============================================
+// wl-table (for @extend)
+// ===============================================
+
+%wl-table {
+  @include wl-table;
+}
+
+// ===============================================
+// wl-table (class selector)
+// ===============================================
+
+.wl-table {
+  @extend %wl-table;
+}
+
+// ===============================================
+// wl-message (for @include)
+// ===============================================
+
+@mixin wl-message {
+  display: table;
+  margin: 0 0 15px;
+  width: 100%;
+  color: $warning-color;
+  background: $warning-background-color;
+  border: 1px solid $warning-border-color;
+  border-collapse: collapse;
+  border-spacing: 0;
+
+  // type
+  .type {
+    display: table-cell;
+    padding: 5px 5px 5px 10px;
+    width: 44px;
+    vertical-align: top;
+    span {
+      @include wl-icon--exclamation;
+    }
+  }
+
+  // message
+  .message {
+    display: table-cell;
+    padding: 5px;
+    font-size: 16px;
+    vertical-align: middle;
+  }
+
+  // dismiss
+  .dismiss {
+    display: table-cell;
+    padding: 5px;
+    width: 22px;
+    text-align: right;
+    vertical-align: top;
+    button {
+      padding: 0;
+      background: none;
+      border: none;
+    }
+    span {
+      @include wl-icon--x;
+      width: 22px;
+      height: 22px;
+      font-size: 22px;
+    }
+  }
+}
+
+// ===============================================
+// wl-message (for @extend)
+// ===============================================
+
+%wl-message {
+  @include wl-message;
+}
+
+// ===============================================
+// wl-message (class selector)
+// ===============================================
+
+.wl-message {
+  @extend %wl-message;
+}
+
+// ===============================================
+// wl-message--success (for @include)
+// ===============================================
+
+@mixin wl-message--success {
+  @include wl-message;
+  color: $success-color;
+  background: $success-background-color;
+  border-color: $success-border-color;
+  .type {
+    span {
+      @include wl-icon--check-mark;
+    }
+  }
+}
+
+// ===============================================
+// wl-message--success (for @extend)
+// ===============================================
+
+%wl-message--success {
+  @include wl-message--success;
+}
+
+// ===============================================
+// wl-message--success (class selector)
+// ===============================================
+
+.wl-message--success {
+  @extend %wl-message--success;
+}
+
+// ===============================================
+// wl-message--info (for @include)
+// ===============================================
+
+@mixin wl-message--info {
+  @include wl-message;
+  color: $info-color;
+  background: $info-background-color;
+  border-color: $info-border-color;
+  .type {
+    span {
+      @include wl-icon--speech-bubble;
+    }
+  }
+}
+
+// ===============================================
+// wl-message--info (for @extend)
+// ===============================================
+
+%wl-message--info {
+  @include wl-message--info;
+}
+
+// ===============================================
+// wl-message--info (class selector)
+// ===============================================
+
+.wl-message--info {
+  @extend %wl-message--info;
+}
+
+// ===============================================
+// wl-message--error (for @include)
+// ===============================================
+
+@mixin wl-message--error {
+  @include wl-message;
+  color: $error-color;
+  background: $error-background-color;
+  border-color: $error-border-color;
+}
+
+// ===============================================
+// wl-message--error (for @extend)
+// ===============================================
+
+%wl-message--error {
+  @include wl-message--error;
+}
+
+// ===============================================
+// wl-message--error (class selector)
+// ===============================================
+
+.wl-message--error {
+  @extend %wl-message--error;
+}
+
+// ==========================================================================
+// containers
+// ==========================================================================
+
+// ===============================================
+// wl-grid and modifiers (for @include)
+// ===============================================
+
+// pass in number of cols and gutter width, default to 2 cols and 2% gutter
+@mixin wl-grid($cell-count: 2, $gutter-width: 0.02) {
+  @include cf;
+
+  // calculate the width of each cell based on the number of cells and the gutter width
+  $width: (100 - ($cell-count - 1) * ($gutter-width * 100)) / $cell-count / 100;
+
+  // reduce the width of the first cell to ensure the total grid width is < 100% to avoid browser rounding errors
+  > .grid-cell {
+    width: percentage($width - 0.001);
+    float: left;
+  }
+
+  // apply the originally calculated width to each additional cell
+  > .grid-cell + .grid-cell {
+    margin: 0 0 0 percentage($gutter-width);
+    width: percentage($width);
+  }
+}
+
+// ===============================================
+// wl-grid (for @extend)
+// ===============================================
+
+%wl-grid {
+  @include wl-grid;
+}
+
+// ===============================================
+// wl-grid (class selector)
+// ===============================================
+
+.wl-grid {
+  @extend %wl-grid;
+}
+
+// ===============================================
+// wl-grid modifiers (for @extend)
+// ===============================================
+
+// create grids of 3, 4, 5, & 6 cells each, use default gutter
+@each $cell-count in 3, 4, 5, 6 {
+  %wl-grid--#{$cell-count} {
+    @include wl-grid($cell-count);
+  }
+}
+
+// ===============================================
+// wl-grid modifiers (class selector)
+// ===============================================
+
+@each $cell-count in 3, 4, 5, 6 {
+  .wl-grid--#{$cell-count} {
+    @extend %wl-grid--#{$cell-count};
+  }
+}
+
+// ===============================================
+// wl-box (for @include)
+// ===============================================
+
+@mixin wl-box {
+  margin: 0 0 15px;
+  padding: 15px;
+  background: $box-background-color;
+  border: 1px solid $border-color;
+}
+
+// ===============================================
+// wl-box (for @extend)
+// ===============================================
+
+%wl-box {
+  @include wl-box;
+}
+
+// ===============================================
+// wl-box (class selector)
+// ===============================================
+
+.wl-box {
+  @extend %wl-box;
+}
+
+// ==========================================================================
+// form controls
+// ==========================================================================
+
+// ===============================================
+// wl-button (for @include)
+// ===============================================
+
+@mixin wl-button {
+  display: inline-block;
+  margin: 0;
+  padding: 6px 10px;
+  text-align: center;
+  line-height: 1;
+  font-size: 16px;
+  font-weight: normal;
+  text-decoration: none;
+  color: $link-color;
+  background: $background-color;
+  border: 1px solid;
+  cursor: pointer;
+  white-space: nowrap;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+// ===============================================
+// wl-button (for @extend)
+// ===============================================
+
+%wl-button {
+  @include wl-button;
+}
+
+// ===============================================
+// wl-button (class selector)
+// ===============================================
+
+.wl-button {
+  @extend %wl-button;
+}
+
+// ===============================================
+// wl-button--small (for @include)
+// ===============================================
+
+@mixin wl-button--small {
+  @include wl-button;
+  font-size: 14px;
+  padding: 2px 5px;
+}
+
+// ===============================================
+// wl-button--small (for @extend)
+// ===============================================
+
+%wl-button--small {
+  @include wl-button--small;
+}
+
+// ===============================================
+// wl-button--small (class selector)
+// ===============================================
+
+.wl-button--small {
+  @extend %wl-button--small;
+}
+
+// ===============================================
+// wl-button--large (for @include)
+// ===============================================
+
+@mixin wl-button--large {
+  @include wl-button;
+  font-size: 24px;
+  padding: 10px 18px;
+}
+
+// ===============================================
+// wl-button--large (for @extend)
+// ===============================================
+
+%wl-button--large {
+  @include wl-button--large;
+}
+
+// ===============================================
+// wl-button--large (class selector)
+// ===============================================
+
+.wl-button--large {
+  @extend %wl-button--large;
+}
+
+// ===============================================
+// wl-text-button (for @include)
+// ===============================================
+
+@mixin wl-text-button {
+  display: inline;
+  margin: 0;
+  padding: 0;
+  text-align: left;
+  text-decoration: none;
+  color: $link-color;
+  background: none;
+  border: none;
+  cursor: pointer;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+// ===============================================
+// wl-text-button (for @extend)
+// ===============================================
+
+%wl-text-button {
+  @include wl-text-button;
+}
+
+// ===============================================
+// wl-text-button (class selector)
+// ===============================================
+
+.wl-text-button {
+  @extend %wl-text-button;
+}
+
+// ===============================================
+// wl-text-box (for @include)
+// ===============================================
+
+@mixin wl-text-box {
+  padding: 5px;
+  width: 200px;
+  border: 1px solid $border-color;
+}
+
+// ===============================================
+// wl-text-box (for @extend)
+// ===============================================
+
+%wl-text-box {
+  @include wl-text-box;
+}
+
+// ===============================================
+// wl-text-box (class selector)
+// ===============================================
+
+.wl-text-box {
+  @extend %wl-text-box;
+}
+
+// ===============================================
+// wl-text-box--x-small (for @include)
+// ===============================================
+
+@mixin wl-text-box--x-small {
+  @include wl-text-box;
+  width: 40px;
+}
+
+// ===============================================
+// wl-text-box--x-small (for @extend)
+// ===============================================
+
+%wl-text-box--x-small {
+  @include wl-text-box--x-small;
+}
+
+// ===============================================
+// wl-text-box--x-small (class selector)
+// ===============================================
+
+.wl-text-box--x-small {
+  @extend %wl-text-box--x-small;
+}
+
+// ===============================================
+// wl-text-box--small (for @include)
+// ===============================================
+
+@mixin wl-text-box--small {
+  @include wl-text-box;
+  width: 100px;
+}
+
+// ===============================================
+// wl-text-box--small (for @extend)
+// ===============================================
+
+%wl-text-box--small {
+  @include wl-text-box--small;
+}
+
+// ===============================================
+// wl-text-box--small (class selector)
+// ===============================================
+
+.wl-text-box--small {
+  @extend %wl-text-box--small;
+}
+
+// ===============================================
+// wl-text-box--multi-line (for @include)
+// ===============================================
+
+@mixin wl-text-box--multi-line {
+  @include wl-text-box;
+  width: 250px;
+  height: 125px;
+}
+
+// ===============================================
+// wl-text-box--multi-line (for @extend)
+// ===============================================
+
+%wl-text-box--multi-line {
+  @include wl-text-box--multi-line;
+}
+
+// ===============================================
+// wl-text-box--multi-line (class selector)
+// ===============================================
+
+.wl-text-box--multi-line {
+  @extend %wl-text-box--multi-line;
+}
+
+// ==========================================================================
+// form control grids
+// ==========================================================================
+
+// ===============================================
+// wl-value (for @include)
+// ===============================================
+
+@mixin wl-value {
+  display: inline-block;
+
+  // notes
+  .note {
+    display: block;
+    margin: 2px 0 0;
+  }
+
+  // errors
+  label.error,
+  span.error {
+    display: block;
+    margin: 2px 0 0;
+    color: $error-color;
+    text-transform: capitalize;
+  }
+}
+
+// ===============================================
+// wl-value (for @extend)
+// ===============================================
+
+%wl-value {
+  @include wl-value;
+}
+
+// ===============================================
+// wl-value (class selector)
+// ===============================================
+
+.wl-value {
+  @extend %wl-value;
+}
+
+// ===============================================
+// wl-property (for @include)
+// ===============================================
+
+@mixin wl-property {
+  margin: 0 0 15px;
+
+  // name
+  .name {
+    font-weight: normal;
+  }
+
+  // value
+  .wl-value {
+    display: block;
+  }
+}
+
+// ===============================================
+// wl-property (for @extend)
+// ===============================================
+
+%wl-property {
+  @include wl-property;
+}
+
+// ===============================================
+// wl-property (class selector)
+// ===============================================
+
+.wl-property {
+  @extend %wl-property;
+}
+
+// ===============================================
+// wl-property--row (for @include)
+// ===============================================
+
+@mixin wl-property--row {
+  @include wl-property;
+
+  // name
+  .name {
+    display: inline-block;
+    margin: 0 3px 0 0;
+    width: 125px;
+    vertical-align: top;
+  }
+
+  // value
+  .wl-value {
+    display: inline-block;
+    vertical-align: top;
+  }
+}
+
+// ===============================================
+// wl-property--row (for @extend)
+// ===============================================
+
+%wl-property--row {
+  @include wl-property--row;
+}
+
+// ===============================================
+// wl-property--row (class selector)
+// ===============================================
+
+.wl-property--row {
+  @extend %wl-property--row;
+}
+
+// ===============================================
+// wl-property--row-wide (for @include)
+// ===============================================
+
+@mixin wl-property--row-wide {
+  @include wl-property;
+
+  // name
+  .name {
+    display: inline-block;
+    margin: 0 3px 0 0;
+    width: 175px;
+    vertical-align: top;
+  }
+
+  // value
+  .wl-value {
+    display: inline-block;
+    vertical-align: top;
+  }
+}
+
+// ===============================================
+// wl-property--row-wide (for @extend)
+// ===============================================
+
+%wl-property--row-wide {
+  @include wl-property--row-wide;
+}
+
+// ===============================================
+// wl-property--row-wide (class selector)
+// ===============================================
+
+.wl-property--row-wide {
+  @extend %wl-property--row-wide;
+}
+
+// ===============================================
+// wl-property--row-auto (for @include)
+// ===============================================
+
+@mixin wl-property--row-auto {
+  @include wl-property;
+
+  // name
+  .name {
+    display: inline-block;
+    margin: 0 3px 0 0;
+    vertical-align: top;
+  }
+
+  // value
+  .wl-value {
+    display: inline-block;
+    vertical-align: top;
+  }
+}
+
+// ===============================================
+// wl-property--row-auto (for @extend)
+// ===============================================
+
+%wl-property--row-auto {
+  @include wl-property--row-auto;
+}
+
+// ===============================================
+// wl-property--row-auto (class selector)
+// ===============================================
+
+.wl-property--row-auto {
+  @extend %wl-property--row-auto;
+}
+
+// ===============================================
+// wl-button-property (for @include)
+// ===============================================
+
+@mixin wl-button-property {
+  display: table;
+  margin: 0 0 15px;
+  border-collapse: collapse;
+  border-spacing: 0;
+
+  // value
+  .wl-value {
+    display: table-cell;
+    padding: 0 5px 0 0;
+    vertical-align: top;
+    white-space: nowrap;
+    label.error,
+    span.error {
+      display: inline;
+    }
+  }
+
+  // name
+  .name {
+    display: table-cell;
+    width: 99%;
+    vertical-align: top;
+  }
+}
+
+// ===============================================
+// wl-button-property (for @extend)
+// ===============================================
+
+%wl-button-property {
+  @include wl-button-property;
+}
+
+// ===============================================
+// wl-button-property (class selector)
+// ===============================================
+
+.wl-button-property {
+  @extend %wl-button-property;
+}
+
+// ===============================================
+// wl-button-property--row (for @include)
+// ===============================================
+
+@mixin wl-button-property--row {
+  @include wl-button-property;
+  margin-left: 133px;
+}
+
+// ===============================================
+// wl-button-property--row (for @extend)
+// ===============================================
+
+%wl-button-property--row {
+  @include wl-button-property--row;
+}
+
+// ===============================================
+// wl-button-property--row (class selector)
+// ===============================================
+
+.wl-button-property--row {
+  @extend %wl-button-property--row;
+}
+
+// ===============================================
+// wl-button-property--row-wide (for @include)
+// ===============================================
+
+@mixin wl-button-property--row-wide {
+  @include wl-button-property;
+  margin-left: 183px;
+}
+
+// ===============================================
+// wl-button-property--row-wide (for @extend)
+// ===============================================
+
+%wl-button-property--row-wide {
+  @include wl-button-property--row-wide;
+}
+
+// ===============================================
+// wl-button-property--row-wide (class selector)
+// ===============================================
+
+.wl-button-property--row-wide {
+  @extend %wl-button-property--row-wide;
+}
+
+// ===============================================
+// wl-property-group (for @include)
+// ===============================================
+
+@mixin wl-property-group {
+  display: block;
+}
+
+// ===============================================
+// wl-property-group (for @extend)
+// ===============================================
+
+%wl-property-group {
+  @include wl-property-group;
+}
+
+// ===============================================
+// wl-property-group (class selector)
+// ===============================================
+
+.wl-property-group {
+  @extend %wl-property-group;
+}
+
+// ===============================================
+// wl-property-group--row (for @include)
+// ===============================================
+
+@mixin wl-property-group--row {
+  @include wl-property-group;
+  [class*='wl-property'] {
+    display: inline-block;
+    margin-right: 15px;
+    vertical-align: top;
+  }
+}
+
+// ===============================================
+// wl-property-group--row (for @extend)
+// ===============================================
+
+%wl-property-group--row {
+  @include wl-property-group--row;
+}
+
+// ===============================================
+// wl-property-group--row (class selector)
+// ===============================================
+
+.wl-property-group--row {
+  @extend %wl-property-group--row;
+}
+
+// ===============================================
+// wl-button-property-group (for @include)
+// ===============================================
+
+@mixin wl-button-property-group {
+  margin: 0 0 15px;
+  [class*='wl-button-property'] {
+    margin-bottom: 0;
+  }
+}
+
+// ===============================================
+// wl-button-property-group (for @extend)
+// ===============================================
+
+%wl-button-property-group {
+  @include wl-button-property-group;
+}
+
+// ===============================================
+// wl-button-property-group (class selector)
+// ===============================================
+
+.wl-button-property-group {
+  @extend %wl-button-property-group;
+}
+
+// ===============================================
+// wl-action-group (for @include)
+// ===============================================
+
+@mixin wl-action-group {
+  margin: 0 0 15px;
+  p {
+    margin: 0;
+  }
+  p + p,
+  p + form,
+  form + form,
+  form + p {
+    margin-top: 8px;
+  }
+}
+
+// ===============================================
+// wl-action-group (for @extend)
+// ===============================================
+
+%wl-action-group {
+  @include wl-action-group;
+}
+
+// ===============================================
+// wl-action-group (class selector)
+// ===============================================
+
+.wl-action-group {
+  @extend %wl-action-group;
+}
+
+// ===============================================
+// wl-action-group--row (for @include)
+// ===============================================
+
+@mixin wl-action-group--row {
+  @include wl-action-group;
+  display: table;
+  border-collapse: collapse;
+  border-spacing: 0;
+  > p {
+    display: table-cell;
+  }
+  > form {
+    display: table-cell;
+  }
+  p + p,
+  p + form,
+  form + form,
+  form + p {
+    margin-top: 0;
+    padding-left: 15px;
+  }
+}
+
+// ===============================================
+// wl-action-group--row (for @extend)
+// ===============================================
+
+%wl-action-group--row {
+  @include wl-action-group--row;
+}
+
+// ===============================================
+// wl-action-group--row (class selector)
+// ===============================================
+
+.wl-action-group--row {
+  @extend %wl-action-group--row;
+}
+
+// ===============================================
+// wl-inline-form (for @include)
+// ===============================================
+
+@mixin wl-inline-form {
+  p {
+    display: inline-block;
+    margin: 0;
+    vertical-align: top;
+  }
+}
+
+// ===============================================
+// wl-inline-form (for @extend)
+// ===============================================
+
+%wl-inline-form {
+  @include wl-inline-form;
+}
+
+// ===============================================
+// wl-inline-form (class selector)
+// ===============================================
+
+.wl-inline-form {
+  @extend %wl-inline-form;
+}
+
+// ==========================================================================
+// jquery ui
+// ==========================================================================
+
+// ===============================================
+// ui-helper-hidden-accessible (for @include)
+// ===============================================
+
+@mixin ui-helper-hidden-accessible {
+  @include visually-hidden;
+}
+
+// ===============================================
+// ui-helper-hidden-accessible (for @extend)
+// ===============================================
+
+%ui-helper-hidden-accessible {
+  @include ui-helper-hidden-accessible;
+}
+
+// ===============================================
+// ui-helper-hidden-accessible (class selector)
+// ===============================================
+
+.ui-helper-hidden-accessible {
+  @extend %ui-helper-hidden-accessible;
+}
+
+// ===============================================
+// ui-widget-overlay (for @include)
+// ===============================================
+
+@mixin ui-widget-overlay {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: $ui-widget-overlay-bg-color;
+  z-index: 30; // over ui-autocomplete, under ui-dialog
+}
+
+// ===============================================
+// ui-widget-overlay (for @extend)
+// ===============================================
+
+%ui-widget-overlay {
+  @include ui-widget-overlay;
+}
+
+// ===============================================
+// ui-widget-overlay (class selector)
+// ===============================================
+
+.ui-widget-overlay {
+  @extend %ui-widget-overlay;
+}
+
+// ===============================================
+// ui-dialog (for @include)
+// ===============================================
+
+@mixin ui-dialog {
+  position: absolute;
+  padding: 5px;
+  background: $background-color;
+  border: 1px solid $border-color;
+  z-index: 40; // over ui-widget-overlay, under wl-admin-toolbar
+
+  // h1s
+  h1 {
+    margin-right: 55px; // space for close button
+  }
+
+  // title bar
+  .ui-dialog-titlebar {
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+  .ui-dialog-title {
+    display: none;
+  }
+  .ui-dialog-titlebar-close {
+    padding: 0;
+    background: none;
+    border: none;
+    .ui-button-icon-primary {
+      display: none;
+    }
+    .ui-button-text {
+      @include wl-icon;
+    }
+  }
+
+  // content
+  .ui-dialog-content {
+    padding: 10px 15px 5px;
+  }
+
+  // view
+  .wl-view {
+    width: $dialog-width;
+  }
+}
+
+// ===============================================
+// ui-dialog (for @extend)
+// ===============================================
+
+%ui-dialog {
+  @include ui-dialog;
+}
+
+// ===============================================
+// ui-dialog (class selector)
+// ===============================================
+
+.ui-dialog {
+  @extend %ui-dialog;
+}

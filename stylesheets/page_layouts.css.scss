@@ -1,0 +1,87 @@
+// ==========================================================================
+// wl-page-layout
+// ==========================================================================
+
+.wl-page-layout {
+  position: relative;
+  margin: 0 auto;
+  padding: 10px;
+  max-width: 960px;
+  min-width: 300px;
+  z-index: 10; // under wl-admin-toolbar
+}
+
+// ==========================================================================
+// wl-page-header
+// ==========================================================================
+
+.wl-page-header {
+  @extend %cf;
+  position: relative;
+  margin: 0 0 20px;
+  padding: 10px;
+  z-index: 30; // over wl-page-content and wl-page-footer
+}
+
+// ==========================================================================
+// wl-page-content
+// ==========================================================================
+
+.wl-page-content {
+  @extend %cf;
+  position: relative;
+  z-index: 20; // under wl-page-header, over wl-page-footer
+}
+
+// ===============================================
+// wl-page-aside
+// ===============================================
+
+.wl-page-aside {
+  width: 100%;
+  float: left;
+  @include respond-to($medium-breakpoint) {
+    width: px-to-percent(180, 960);
+  }
+}
+
+// ===============================================
+// wl-main
+// ===============================================
+
+.wl-main {
+  width: 100%;
+  float: right;
+  .back-to-top {
+    @extend %visually-hidden;
+  }
+}
+
+// ===============================================
+// wl-main--with-aside
+// ===============================================
+
+.wl-main--with-aside {
+  @extend .wl-main;
+  @include respond-to($medium-breakpoint) {
+    width: px-to-percent(760, 960);
+  }
+}
+
+// ===============================================
+// wl-view
+// ===============================================
+
+.wl-view {
+  @extend %cf;
+}
+
+// ==========================================================================
+// wl-page-footer
+// ==========================================================================
+
+.wl-page-footer {
+  margin: 20px 0 0;
+  padding: 10px;
+  text-align: center;
+}

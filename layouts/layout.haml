@@ -1,0 +1,26 @@
+!!!
+/
+  Platform:   WebLinc Middleman Boilerplate
+  Copyright:  #{Time.now.year} WebLinc, LLC
+  Web:        http://weblinc.com
+  Email:      sales@weblinc.com
+  Phone:      215-925-1800
+
+%html.no-js{ lang: 'en' }
+  %head
+    %meta{ charset: 'utf-8' }
+    %title= current_page.data.title || "WebLinc Middleman Boilerplate"
+    %meta{ name: 'robots', content: 'noodp' }
+    %meta{ name: 'viewport', content: 'width=device-width' }
+
+    = stylesheet_link_tag 'styles', media: 'all'
+    = javascript_include_tag 'top'
+
+    - components = ['font-roboto/roboto', 'core-header-panel/core-header-panel', 'core-toolbar/core-toolbar', 'paper-tabs/paper-tabs']
+    - components.each do |component|
+      %link{ rel: 'import', href: "/components/#{component}.html" }
+
+    %body{ unresolved: true }
+      = yield
+
+      = javascript_include_tag 'bottom'

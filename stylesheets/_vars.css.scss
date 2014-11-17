@@ -1,0 +1,95 @@
+// ==========================================================================
+// colors
+// ==========================================================================
+
+// ===============================================
+// descriptive names
+// ===============================================
+
+// colors
+$blue:                        #3366cc;
+$yellow:                      #ffffcc;
+$light-red:                   #f2dede;
+$medium-red:                  #ebccd1;
+$dark-red:                    #a94442;
+$light-yellow:                #fcf8e3;
+$medium-yellow:               #faebcc;
+$dark-yellow:                 #8a6d3b;
+$light-blue:                  #d9edf7;
+$medium-blue:                 #bce8f1;
+$dark-blue:                   #31708f;
+$light-green:                 #dff0d8;
+$medium-green:                #d6e9c6;
+$dark-green:                  #3c763d;
+
+// grays
+$white:                       #ffffff;
+$white-alpha-50:              rgba($white, 0.50);
+$almost-white:                #f8f8f8;
+$gray:                        #ececec;
+$black:                       #000000;
+$black-alpha-75:              rgba($black, 0.75);
+
+// ===============================================
+// functional names
+// ===============================================
+
+// generic
+$color:                       $black;
+$background-color:            $white;
+$border-color:                $black;
+$highlight-color:             $yellow;
+$discount-color:              $dark-red;
+$error-color:                 $dark-red;
+$error-background-color:      $light-red;
+$error-border-color:          $medium-red;
+$info-color:                  $dark-blue;
+$info-background-color:       $light-blue;
+$info-border-color:           $medium-blue;
+$warning-color:               $dark-yellow;
+$warning-background-color:    $light-yellow;
+$warning-border-color:        $medium-yellow;
+$success-color:               $dark-green;
+$success-background-color:    $light-green;
+$success-border-color:        $medium-green;
+
+// elements
+$link-color:                  $blue;
+
+// components
+$box-background-color:        $gray;
+$table-header-bg-color:       $almost-white;
+$ui-widget-overlay-bg-color:  $black-alpha-75;
+
+// views
+$hover-zoom-lens-bg-color:    $white-alpha-50;
+$hover-zoom-mask-bg-color:    $white-alpha-50;
+$style-guide-code-bg-color:   $almost-white;
+
+// ==========================================================================
+// font stacks
+// ==========================================================================
+
+$font:                        sans-serif;
+$icon-font:                   icons;
+
+// ==========================================================================
+// text sizes
+// ==========================================================================
+
+$font-size:                   14px;
+$form-control-font-size:      16px;
+$line-height:                 1.5;
+
+// ==========================================================================
+// breakpoint widths
+// ==========================================================================
+
+$medium-breakpoint:           760px;
+$wide-breakpoint:             960px;
+
+// ==========================================================================
+// dialog widths
+// ==========================================================================
+
+$dialog-width:                718px;

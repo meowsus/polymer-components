@@ -1,0 +1,130 @@
+// ==========================================================================
+// content
+// ==========================================================================
+
+// ===============================================
+// wl-home-page-view
+// ===============================================
+
+.wl-home-page-view {}
+
+// ===============================================
+// wl-style-guide-view
+// ===============================================
+
+.wl-style-guide-view {
+
+  // sections & headings
+  .style-guide-section {
+    margin: 0 0 60px;
+    > h2 {
+      margin: 0 0 30px;
+      padding: 0 0 5px;
+      border-bottom: 1px solid $border-color;
+    }
+  }
+
+  // inline code
+  code {
+    padding: 0 4px 2px;
+    background: $style-guide-code-bg-color;
+    border: 1px solid $border-color;
+  }
+
+  // example blocks
+  .style-guide-example-block {
+    margin: 0 0 15px;
+    padding: 15px;
+    background: image-url('style_guide_example.png');
+    border: 1px solid $border-color;
+  }
+
+  // code blocks
+  .style-guide-code-block {
+    display: block;
+    margin: 0 0 15px;
+    > code {
+      display: block;
+      padding: 15px;
+    }
+  }
+
+  // colors
+  .style-guide-color-group {
+    margin: 0;
+    list-style: none;
+  }
+  .style-guide-color {
+    display: inline-block;
+    margin: 0 10px 10px 0;
+    padding: 5px;
+    text-align: center;
+    border: 1px solid $border-color;
+    white-space: nowrap;
+  }
+  .style-guide-color-frame {
+    position: relative;
+    display: block;
+    margin: 0 auto 5px;
+    width: 105px;
+    height: 105px;
+    background: image-url('style_guide_color.png');
+    border: 1px solid $border-color;
+  }
+  .style-guide-color-swatch {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 105px;
+    height: 105px;
+  }
+  .style-guide-color-swatch--blue           { @extend .style-guide-color-swatch; background: $blue;           }
+  .style-guide-color-swatch--yellow         { @extend .style-guide-color-swatch; background: $yellow;         }
+  .style-guide-color-swatch--light-red      { @extend .style-guide-color-swatch; background: $light-red;      }
+  .style-guide-color-swatch--medium-red     { @extend .style-guide-color-swatch; background: $medium-red;     }
+  .style-guide-color-swatch--dark-red       { @extend .style-guide-color-swatch; background: $dark-red;       }
+  .style-guide-color-swatch--light-yellow   { @extend .style-guide-color-swatch; background: $light-yellow;   }
+  .style-guide-color-swatch--medium-yellow  { @extend .style-guide-color-swatch; background: $medium-yellow;  }
+  .style-guide-color-swatch--dark-yellow    { @extend .style-guide-color-swatch; background: $dark-yellow;    }
+  .style-guide-color-swatch--light-blue     { @extend .style-guide-color-swatch; background: $light-blue;     }
+  .style-guide-color-swatch--medium-blue    { @extend .style-guide-color-swatch; background: $medium-blue;    }
+  .style-guide-color-swatch--dark-blue      { @extend .style-guide-color-swatch; background: $dark-blue;      }
+  .style-guide-color-swatch--light-green    { @extend .style-guide-color-swatch; background: $light-green;    }
+  .style-guide-color-swatch--medium-green   { @extend .style-guide-color-swatch; background: $medium-green;   }
+  .style-guide-color-swatch--dark-green     { @extend .style-guide-color-swatch; background: $dark-green;     }
+  .style-guide-color-swatch--white          { @extend .style-guide-color-swatch; background: $white;          }
+  .style-guide-color-swatch--white-alpha-50 { @extend .style-guide-color-swatch; background: $white-alpha-50; }
+  .style-guide-color-swatch--almost-white   { @extend .style-guide-color-swatch; background: $almost-white;   }
+  .style-guide-color-swatch--gray           { @extend .style-guide-color-swatch; background: $gray;           }
+  .style-guide-color-swatch--black          { @extend .style-guide-color-swatch; background: $black;          }
+  .style-guide-color-swatch--black-alpha-75 { @extend .style-guide-color-swatch; background: $black-alpha-75; }
+
+  // icons
+  .style-guide-icon-group {
+    margin: 0 0 10px;
+    list-style: none;
+  }
+  .style-guide-icon {
+    display: inline-block;
+    margin: 0 10px 10px 0;
+    padding: 5px;
+    width: 100px;
+    text-align: center;
+    border: 1px solid $border-color;
+    white-space: nowrap;
+  }
+  .style-guide-icon-frame {
+    display: block;
+    margin: 0 auto 5px;
+    width: 44px;
+    height: 44px;
+  }
+
+  // grids
+  .style-guide-example-block [class*='wl-grid'] {
+    background: $background-color;
+    .grid-cell div {
+      background: $color;
+    }
+  }
+}

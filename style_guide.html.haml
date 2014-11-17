@@ -1,0 +1,1590 @@
+.wl-style-guide-view.wl-view
+
+  %h1 Store Front Style Guide
+
+  %p Documentation and visual test suite for implementers and designers.
+
+  #color-palette.style-guide-section
+
+    %h2 Color Palette
+
+    .style-guide-section
+
+      %h3 Colors
+
+      %ul.style-guide-color-group
+        - colors = %w(blue light-blue medium-blue dark-blue yellow light-yellow medium-yellow dark-yellow light-red medium-red dark-red light-green medium-green dark-green)
+        - colors.each do |color|
+          %li.style-guide-color
+            %span.style-guide-color-frame
+              %span{ class: "style-guide-color-swatch--#{color}" }
+            $#{color}
+
+    .style-guide-section
+
+      %h3 Grays
+
+      %ul.style-guide-color-group
+        - colors = %w(white white-alpha-50 almost-white gray black black-alpha-75)
+        - colors.each do |color|
+          %li.style-guide-color
+            %span.style-guide-color-frame
+              %span{ class: "style-guide-color-swatch--#{color}" }
+            $#{color}
+
+  #components.style-guide-section
+
+    %h2 Components
+
+    #wl-icon.style-guide-section
+
+      %h3 wl-icon
+
+      %p Hides the text of the element, resizes it to a fixed size, and displays a font-based vector icon.
+
+      %p All modifiers are shown together (below) for convenience:
+
+      %ul.style-guide-icon-group
+        - icons = %w(speech-bubble check-mark exclamation x envelope facebook twitter pinterest google-plus)
+        - icons.each do |icon|
+          %li.style-guide-icon
+            %span.style-guide-icon-frame
+              %span{ class: "wl-icon--#{icon}" } Icon Text
+            = icon
+
+      %p wl-icon is designed to work with <code>a</code>, <code>span</code>, and <code>p</code> elements. <code>p</code> elements are converted to inline-block.
+
+      %p Icons using an <code>a</code> element:
+      .style-guide-example-block
+        - icons.each do |icon|
+          = link_to 'Icon Text', '#', class: "wl-icon--#{icon}"
+
+      %p Icons using a <code>span</code> element:
+      .style-guide-example-block
+        - icons.each do |icon|
+          %span{ class: "wl-icon--#{icon}" } Icon Text
+
+      %p Icons using a <code>p</code> element:
+      .style-guide-example-block
+        - icons.each do |icon|
+          %p{ class: "wl-icon--#{icon}" } Icon Text
+
+    #wl-loading.style-guide-section
+
+      %h3 wl-loading
+
+      %p Displays a general purpose loading/busy indicator. Use with a <code>p</code> element and an animated gif.
+
+      .style-guide-example-block
+        %p.wl-loading= image_tag('loading.gif')
+
+    #wl-heading.style-guide-section
+
+      %h3 wl-heading
+
+      %p Formats the element as a heading. Used with the modifiers that follow to separate heading presentation from heading semantics. Any semantic heading level can quickly and consistently be restyled to match one of several heading presentations. Heading presentations may or may not correlate to the 6 semantic levels. Also useful to apply heading styles to non-heading elements such as <code>p</code> and <code>fieldset > legend > span</code>.
+
+      - wl_heading_elements = %w(h1 h2 h3 h4 h5 h6 p)
+      - wl_heading_elements.each do |elem|
+        .style-guide-example-block
+          = content_tag(elem, "#{elem.upcase} Element", class: 'wl-heading')
+
+    #wl-heading--2.style-guide-section
+
+      %h3 wl-heading--2
+
+      %p Inherits from #{link_to 'wl-heading', '#wl-heading'}. Reduces font size.
+
+      - wl_heading_elements.each do |elem|
+        .style-guide-example-block
+          = content_tag(elem, "#{elem.upcase} Element", class: 'wl-heading--2')
+
+    #wl-heading--3.style-guide-section
+
+      %h3 wl-heading--3
+
+      %p Inherits from #{link_to 'wl-heading', '#wl-heading'}. Reduces font size.
+
+      - wl_heading_elements.each do |elem|
+        .style-guide-example-block
+          = content_tag(elem, "#{elem.upcase} Element", class: 'wl-heading--3')
+
+    #wl-heading--4.style-guide-section
+
+      %h3 wl-heading--4
+
+      %p Inherits from #{link_to 'wl-heading', '#wl-heading'}. Reduces font size.
+
+      - wl_heading_elements.each do |elem|
+        .style-guide-example-block
+          = content_tag(elem, "#{elem.upcase} Element", class: 'wl-heading--4')
+
+    #wl-heading--5.style-guide-section
+
+      %h3 wl-heading--5
+
+      %p Inherits from #{link_to 'wl-heading', '#wl-heading'}. Reduces font size.
+
+      - wl_heading_elements.each do |elem|
+        .style-guide-example-block
+          = content_tag(elem, "#{elem.upcase} Element", class: 'wl-heading--5')
+
+    #wl-heading--6.style-guide-section
+
+      %h3 wl-heading--6
+
+      %p Inherits from #{link_to 'wl-heading', '#wl-heading'}. Reduces font size.
+
+      - wl_heading_elements.each do |elem|
+        .style-guide-example-block
+          = content_tag(elem, "#{elem.upcase} Element", class: 'wl-heading--6')
+
+    #wl-table.style-guide-section
+
+      %h3 wl-table
+
+      %p Displays a table. Use with <code>table</code> elements. <code>p</code>, <code>strong</code>, and #{link_to 'wl-inline-form', '#wl-inline-form'} are teated differently than in the global context. Apply a class value of <code>prices</code> or <code>quantity</code> to control alignment and other styles within the cell. Header cells may be column headers or row headers.
+
+      %p Used within #{link_to 'wl-product-list', '#wl-product-list'}. Refer to that component for additional examples.
+
+      %p Account dashboard:
+      .style-guide-example-block
+        %table.wl-table
+          %tbody
+            %tr
+              %th
+                %span Email
+              %td bclams@weblinc.com
+            %tr
+              %th
+                %span Name
+              %td Bobby Clams
+            %tr
+              %th
+                %span Password
+              %td ********
+
+    #wl-message.style-guide-section
+
+      %h3 wl-message
+
+      %p Displays a message in a message box with an icon. If JavaScript is available, a "dismiss" button is added via #{link_to 'WEBLINC.flashMessageDismissButtons.init', '#flash-message-dismiss-buttons-init'}
+
+      .style-guide-example-block
+        .wl-message
+          %p.type
+            %span Warning
+          %p.message Lorem ipsum dolor #{link_to 'sit amet', '#'}, consectetur adipisicing elit.
+
+    #wl-message--info.style-guide-section
+
+      %h3 wl-message--info
+
+      %p Inherits from #{link_to 'wl-message', '#wl-message'}. Modifies the color scheme and icon.
+
+      .style-guide-example-block
+        .wl-message--info
+          %p.type
+            %span Info
+          %p.message Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud #{link_to 'exercitation ullamco', '#'} laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit.
+
+    #wl-message--error.style-guide-section
+
+      %h3 wl-message--error
+
+      %p Inherits from #{link_to 'wl-message', '#wl-message'}. Modifies the color scheme.
+
+      .style-guide-example-block
+        .wl-message--error
+          %p.type
+            %span Error
+          %p.message Lorem ipsum dolor sit amet, consectetur adipisicing elit, #{link_to 'sed do eiusmod', '#'} tempor incididunt ut labore et dolore magna aliqua.
+
+    #wl-message--success.style-guide-section
+
+      %h3 wl-message--success
+
+      %p Inherits from #{link_to 'wl-message', '#wl-message'}. Modifies the color scheme and icon.
+
+      .style-guide-example-block
+        .wl-message--success
+          %p.type
+            %span Success
+          %p.message Lorem ipsum dolor sit amet, #{link_to 'consectetur adipisicing', '#'} elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit.
+
+    #wl-grid.style-guide-section
+
+      %h3 wl-grid
+
+      %p Creates a grid row for general use. Expects 2 immediate children with a class value of <code>grid-cell</code>. Each <code>grid-cell</code> element will be rendered as an equal-width column. Use this component where you need a generic 2 column grid with equal width columns. Create a custom grid at the view scope when a more specific grid is needed.
+
+      %p When used with <code>@include</code>, 2 arguments are allowed (see below). When used with <code>@extend</code>, the default argument values are used. A limited number of modifiers have been predefined for use with <code>@extend</code> (see sections that follow). Create more as needed.
+
+      %table.wl-table
+        %thead
+          %tr
+            %th Parameter
+            %th Description
+            %th Default Value
+        %tbody
+          %tr
+            %td $cell-count
+            %td The number of grid cells. Must match the number of <code>grid-cell</code> elements in the HTML.
+            %td 2
+          %tr
+            %td $gutter-width
+            %td The gutter width percentage expressed as a floating point number.
+            %td 0.02 (2%)
+
+      %p wl-grid is designed to work with <code>div</code> elements:
+      .style-guide-example-block
+        .wl-grid
+          .grid-cell
+            %div &nbsp;
+          .grid-cell
+            %div &nbsp;
+
+    #wl-grid--3.style-guide-section
+      %h3 wl-grid--3
+
+      %p Inherits from #{link_to 'wl-grid', '#wl-grid'}. Increases <code>$cell-count</code> to 3. For use with <code>@extend</code> only.
+
+      .style-guide-example-block
+        .wl-grid--3
+          .grid-cell
+            %div &nbsp;
+          .grid-cell
+            %div &nbsp;
+          .grid-cell
+            %div &nbsp;
+
+    #wl-grid--4.style-guide-section
+      %h3 wl-grid--4
+
+      %p Inherits from #{link_to 'wl-grid', '#wl-grid'}. Increases <code>$cell-count</code> to 4. For use with <code>@extend</code> only.
+
+      .style-guide-example-block
+        .wl-grid--4
+          .grid-cell
+            %div &nbsp;
+          .grid-cell
+            %div &nbsp;
+          .grid-cell
+            %div &nbsp;
+          .grid-cell
+            %div &nbsp;
+
+    #wl-grid--5.style-guide-section
+      %h3 wl-grid--5
+
+      %p Inherits from #{link_to 'wl-grid', '#wl-grid'}. Increases <code>$cell-count</code> to 5. For use with <code>@extend</code> only.
+
+      .style-guide-example-block
+        .wl-grid--5
+          .grid-cell
+            %div &nbsp;
+          .grid-cell
+            %div &nbsp;
+          .grid-cell
+            %div &nbsp;
+          .grid-cell
+            %div &nbsp;
+          .grid-cell
+            %div &nbsp;
+
+    #wl-grid--6.style-guide-section
+      %h3 wl-grid--6
+
+      %p Inherits from #{link_to 'wl-grid', '#wl-grid'}. Increases <code>$cell-count</code> to 6. For use with <code>@extend</code> only.
+
+      .style-guide-example-block
+        .wl-grid--6
+          .grid-cell
+            %div &nbsp;
+          .grid-cell
+            %div &nbsp;
+          .grid-cell
+            %div &nbsp;
+          .grid-cell
+            %div &nbsp;
+          .grid-cell
+            %div &nbsp;
+          .grid-cell
+            %div &nbsp;
+
+    #wl-box.style-guide-section
+
+      %h3 wl-box
+
+      %p Creates a generic box to isolate content from its surroundings. Designed to work with a <code>div</code> element:
+
+      .style-guide-example-block
+        .wl-box
+          %p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+    #wl-button.style-guide-section
+
+      %h3 wl-button
+
+      %p Displays the element as an interactive button. Designed for use with <code>button</code>, <code>a</code>, <code>span</code>, and <code>p</code> elements. Should only be used with non-interactive elements if the element is nested inside an interactive element (such as a <code>p</code> that looks like a button nested within a large callout marked up as an <code>a</code> element).
+
+      .style-guide-example-block
+        = button_tag 'Button Element', class: 'wl-button'
+        = link_to 'A Element', '#', class: 'wl-button'
+        %span.wl-button Span Element
+        %p.wl-button P Element
+
+    #wl-button--large.style-guide-section
+
+      %h3 wl-button--large
+
+      %p Inherits from #{link_to 'wl-button', '#wl-button'}. Increases padding and font size. Used for major shopping actions like "add to cart", "proceed to checkout", "step through checkout", and "place order".
+
+      .style-guide-example-block
+        = button_tag 'Button Element', class: 'wl-button--large'
+        = link_to 'A Element', '#', class: 'wl-button--large'
+        %span.wl-button--large Span Element
+        %p.wl-button--large P Element
+
+    #wl-button--small.style-guide-section
+
+      %h3 wl-button--small
+
+      %p Inherits from #{link_to 'wl-button', '#wl-button'}. Decreases padding and font size. Used for secondary actions like "view", "edit", and "delete".
+
+      .style-guide-example-block
+        = button_tag 'Button Element', class: 'wl-button--small'
+        = link_to 'A Element', '#', class: 'wl-button--small'
+        %span.wl-button--small Span Element
+        %p.wl-button--small P Element
+
+    #wl-text-button.style-guide-section
+
+      %h3 wl-text-button
+
+      %p Displays element as a text action. Used for secondary actions like "cancel".
+
+      .style-guide-example-block
+        = button_tag 'Button Element', class: 'wl-text-button'
+
+      .style-guide-example-block
+        = link_to 'A Element', '#', class: 'wl-text-button'
+
+    #wl-text-box.style-guide-section
+
+      %h3 wl-text-box
+
+      %p Displays element as an interactive text box. Designed to be used with <code>input</code> elements.
+
+      .style-guide-example-block
+        = text_field_tag 'wl_text_box_blank', value: nil, class: 'wl-text-box'
+      .style-guide-example-block
+        = text_field_tag 'wl_text_box_placeholder', value: nil, class: 'wl-text-box', placeholder: 'Placeholder'
+      .style-guide-example-block
+        = text_field_tag 'wl_text_box_value', value: 'Value', class: 'wl-text-box'
+      .style-guide-example-block
+        = number_field_tag 'wl_text_box_number', value: 99, class: 'wl-text-box'
+
+    #wl-text-box--x-small.style-guide-section
+
+      %h3 wl-text-box--x-small
+
+      %p Inherits from #{link_to 'wl-text-box', '#wl-text-box'}. Reduces width. Used for quantities.
+
+      .style-guide-example-block
+        = number_field_tag 'wl_text_box_x_small', value: 99, class: 'wl-text-box--x-small'
+
+    #wl-text-box--small.style-guide-section
+
+      %h3 wl-text-box--small
+
+      %p Inherits from #{link_to 'wl-text-box', '#wl-text-box'}. Reduces width. Used for phone extensions, zip codes, and other short strings of user input.
+
+      .style-guide-example-block
+        = text_field_tag 'wl_text_box_small', value: 19106, class: 'wl-text-box--small'
+
+    #wl-text-box--multi-line.style-guide-section
+
+      %h3 wl-text-box--multi-line
+
+      %p Inherits from #{link_to 'wl-text-box', '#wl-text-box'}. Increases height for multi-line input. Designed to be used with <code>textarea</code> elements. Avoid using <code>rows</code> and <code>cols</code> attributes and use this component instead.
+
+      .style-guide-example-block
+        = text_area_tag 'wl_text_box_multi_line_blank', value: nil, class: 'wl-text-box--multi-line'
+      .style-guide-example-block
+        = text_area_tag 'wl_text_box_multi_line_placeholder', value: nil, class: 'wl-text-box--multi-line', placeholder: 'Placeholder'
+      .style-guide-example-block
+        = text_area_tag 'wl_text_box_multi_line_value', value: "Value line 1", class: 'wl-text-box--multi-line'
+
+    #wl-value.style-guide-section
+
+      %h3 wl-value
+
+      %p Manages the display of errors, notes, icons, or other content grouped with a form field. Modifiers may be added to re-position or otherwise change the display of these related elements. Use a <code>div</code>, <code>span</code>, or <code>p</code> element for the component.
+
+      %p <code>div</code> element with field only:
+      .style-guide-example-block
+        .wl-value
+          = text_field_tag 'wl_value_text_field_div', value: nil, class: 'wl-text-box'
+
+      %p <code>span</code> element with field and error message:
+      .style-guide-example-block
+        %span.wl-value
+          = text_field_tag 'wl_value_text_field_span_error', value: nil, class: 'wl-text-box error'
+          %span.error Error Message Text
+
+      %p <code>p</code> element with field and note:
+      .style-guide-example-block
+        %p.wl-value
+          = text_field_tag 'wl_value_text_field_p_note', value: nil, class: 'wl-text-box'
+          %span.note This is the note text.
+
+      %p <code>div</code> element with field, error message, and note with link:
+      .style-guide-example-block
+        .wl-value
+          = text_field_tag 'wl_value_text_field_span_error', value: nil, class: 'wl-text-box error'
+          %span.error Error Message Text
+          = link_to 'What\'s This?', '#', class: 'note'
+
+    #wl-property.style-guide-section
+
+      %h3 wl-property
+
+      %p Manages the layout of a form control (wrapped in a #{link_to 'wl-value', '#wl-value'}) and its name. The name is typically a <code>label</code> element, but a <code>strong</code> can be used when <code>label</code> is not appropriate. In rare circumstances, the value of the wl-property may contain multiple values, such as a month select and year select for a date.
+
+      .style-guide-example-block
+        .wl-property
+          = label_tag :wl_property_text_field_1, class: 'name', caption: nil do
+            %span.text Label One
+          .wl-value
+            = text_field_tag 'wl_property_text_field_1', value: nil, class: 'wl-text-box'
+        .wl-property
+          = label_tag 'wl_property_text_field_2', class: 'name', caption: nil do
+            %span.text Label Two
+            %span.requirement--required.requirement (required)
+          .wl-value
+            = text_field_tag 'wl_property_text_field_2', value: nil, class: 'wl-text-box error'
+            %label.error Error message text
+        .wl-property
+          = label_tag 'wl_property_select_field_1', class: 'name', caption: nil do
+            %span.text Label Three
+            %span.requirement--required.optional (optional)
+          .wl-value
+            = select_tag 'wl_property_select_field_1', options: %w(One Two Three)
+        .wl-property
+          = label_tag 'wl_property_select_field_2', class: 'name', caption: nil do
+            %span.text Label Four
+            %span.requirement--required.requirement (required)
+          .wl-value
+            = select_tag 'wl_property_select_field_2', options: %w(One Two Three), class: 'error'
+            %label.error Error message text
+        .wl-property
+          = label_tag 'wl_property_textarea_1', class: 'name', caption: nil do
+            %span.text Label Five
+            %span.requirement--required.requirement (required)
+          .wl-value
+            = text_area_tag 'wl_property_textarea_1', value: nil, class: 'wl-text-box--multi-line'
+        .wl-property
+          = label_tag 'wl_property_textarea_2', class: 'name', caption: nil do
+            %span.text Label Six
+            %span.requirement--required.requirement (required)
+          .wl-value
+            = text_area_tag 'wl_property_textarea_2', value: nil, class: 'error wl-text-box--multi-line'
+            %label.error Error message text
+
+    #wl-property--row.style-guide-section
+
+      %h3 wl-property--row
+
+      %p Inherits from #{link_to 'wl-property', '#wl-property'}. Displays the name and value side by side. The name has a fixed width.
+
+      .style-guide-example-block
+        .wl-property--row
+          = label_tag 'wl_property_row_text_field_1', class: 'name', caption: nil do
+            %span.text Label One
+          .wl-value
+            =text_field_tag 'wl_property_row_text_field_1', value: nil, class: 'wl-text-box'
+        .wl-property--row
+          = label_tag 'wl_property_row_text_field_2', class: 'name', caption: nil do
+            %span.text Label Two
+            %span.requirement--required.requirement (required)
+          .wl-value
+            = text_field_tag 'wl_property_row_text_field_2', value: nil, class: 'wl-text-box error'
+            %label.error Error message text
+        .wl-property--row
+          = label_tag 'wl_property_row_select_field_1', class: 'name', caption: nil do
+            %span.text Label Three
+            %span.requirement--required.optional (optional)
+          .wl-value
+            = select_tag 'wl_property_row_select_field_1', options: %w(One Two Three)
+        .wl-property--row
+          = label_tag 'wl_property_row_select_field_2', class: 'name', caption: nil do
+            %span.text Label Four
+            %span.requirement--required.requirement (required)
+          .wl-value
+            = select_tag 'wl_property_row_select_field_2', options: %w(One Two Three), class: 'error'
+            %label.error Error message text
+        .wl-property--row
+          = label_tag 'wl_property_row_textarea_1', class: 'name', caption: nil do
+            %span.text Label Five
+            %span.requirement--required.requirement (required)
+          .wl-value
+            = text_area_tag 'wl_property_row_textarea_1', value: nil, class: 'wl-text-box--multi-line'
+        .wl-property--row
+          = label_tag 'wl_property_row_textarea_2', class: 'name', caption: nil do
+            %span.text Label Six
+            %span.requirement--required.requirement (required)
+          .wl-value
+            = text_area_tag 'wl_property_row_textarea_2', value: nil, class: 'error wl-text-box--multi-line'
+            %label.error Error message text
+
+    #wl-property--row-wide.style-guide-section
+
+      %h3 wl-property--row-wide
+
+      %p Inherits from #{link_to 'wl-property', '#wl-property'}. Displays the name and value side by side. The name has a fixed width. Uses a wider fixed width to allow for longer names.
+
+      .style-guide-example-block
+        .wl-property--row-wide
+          = label_tag 'wl_property_row_wide_text_field_1', class: 'name', caption: nil do
+            %span.text Longer Label One
+          .wl-value
+            =text_field_tag 'wl_property_row_wide_text_field_1', value: nil, class: 'wl-text-box'
+        .wl-property--row-wide
+          = label_tag 'wl_property_row_wide_text_field_2', class: 'name', caption: nil do
+            %span.text Longer Label Two
+            %span.requirement--required.requirement (required)
+          .wl-value
+            = text_field_tag 'wl_property_row_wide_text_field_2', value: nil, class: 'wl-text-box error'
+            %label.error Error message text
+        .wl-property--row-wide
+          = label_tag 'wl_property_row_wide_select_field_1', class: 'name', caption: nil do
+            %span.text Longer Label Three
+            %span.requirement--required.optional (optional)
+          .wl-value
+            = select_tag 'wl_property_row_wide_select_field_1', options: %w(One Two Three)
+        .wl-property--row-wide
+          = label_tag 'wl_property_row_wide_select_field_2', class: 'name', caption: nil do
+            %span.text Longer Label Four
+            %span.requirement--required.requirement (required)
+          .wl-value
+            = select_tag 'wl_property_row_wide_select_field_2', options: %w(One Two Three), class: 'error'
+            %label.error Error message text
+        .wl-property--row-wide
+          = label_tag 'wl_property_row_wide_textarea_1', class: 'name', caption: nil do
+            %span.text Longer Label Five
+            %span.requirement--required.requirement (required)
+          .wl-value
+            = text_area_tag 'wl_property_row_wide_textarea_1', value: nil, class: 'wl-text-box--multi-line'
+        .wl-property--row-wide
+          = label_tag 'wl_property_row_wide_textarea_2', class: 'name', caption: nil do
+            %span.text Longer Label Six
+            %span.requirement--required.requirement (required)
+          .wl-value
+            = text_area_tag 'wl_property_row_wide_textarea_2', value: nil, class: 'error wl-text-box--multi-line'
+            %label.error Error message text
+
+    #wl-property--row-auto.style-guide-section
+
+      %h3 wl-property--row-auto
+
+      %p Inherits from #{link_to 'wl-property', '#wl-property'}. Displays the name and value side by side. The name has an auto width and will "shrink wrap" its content.
+
+      .style-guide-example-block
+        .wl-property--row-auto
+          = label_tag 'wl_property_row_auto_text_field_1', class: 'name', caption: nil do
+            %span.text Label One
+          .wl-value
+            =text_field_tag 'wl_property_row_auto_text_field_1', value: nil, class: 'wl-text-box'
+        .wl-property--row-auto
+          = label_tag 'wl_property_row_auto_text_field_2', class: 'name', caption: nil do
+            %span.text Label Two
+            %span.requirement--required.requirement (required)
+          .wl-value
+            = text_field_tag 'wl_property_row_auto_text_field_2', value: nil, class: 'wl-text-box error'
+            %label.error Error message text
+        .wl-property--row-auto
+          = label_tag 'wl_property_row_auto_select_field_1', class: 'name', caption: nil do
+            %span.text Label Three
+            %span.requirement--required.optional (optional)
+          .wl-value
+            = select_tag 'wl_property_row_auto_select_field_1', options: %w(One Two Three)
+        .wl-property--row-auto
+          = label_tag 'wl_property_row_auto_select_field_2', class: 'name', caption: nil do
+            %span.text Label Four
+            %span.requirement--required.requirement (required)
+          .wl-value
+            = select_tag 'wl_property_row_auto_select_field_2', options: %w(One Two Three), class: 'error'
+            %label.error Error message text
+        .wl-property--row-auto
+          = label_tag 'wl_property_row_auto_textarea_1', class: 'name', caption: nil do
+            %span.text Label Five
+            %span.requirement--required.requirement (required)
+          .wl-value
+            = text_area_tag 'wl_property_row_auto_textarea_1', value: nil, class: 'wl-text-box--multi-line'
+        .wl-property--row-auto
+          = label_tag 'wl_property_row_auto_textarea_2', class: 'name', caption: nil do
+            %span.text Label Six
+            %span.requirement--required.requirement (required)
+          .wl-value
+            = text_area_tag 'wl_property_row_auto_textarea_2', value: nil, class: 'error wl-text-box--multi-line'
+            %label.error Error message text
+
+    #wl-button-property.style-guide-section
+
+      %h3 wl-button-property
+
+      %p This component serves the same purpose as a #{link_to 'wl-property', '#wl-property'}, but is tailored specifically for radio button and check box controls.
+
+      .style-guide-example-block
+        .wl-property
+          = label_tag 'wl_button_property_text_field_1', class: 'name', caption: nil do
+            %span.text Label One
+            %span.requirement--required.requirement (required)
+          .wl-value
+            = text_field_tag 'wl_button_property_text_field_1', value: nil, class: 'wl-text-box'
+        .wl-button-property
+          .wl-value
+            = radio_button_tag 'wl_button_property_radio_button_1', value: '1', checked: false
+          = label_tag 'wl_button_property_radio_button_1_1', class: 'name', caption: nil do
+            %span.text Label Two With Enough Text to Make It Much Longer Than The Others
+        .wl-property
+          = label_tag 'wl_button_property_select_field_1', class: 'name', caption: nil do
+            %span.text Label Three
+            %span.requirement--required.requirement (required)
+          .wl-value
+            = select_tag 'wl_button_property_select_field_1', options: %w(One Two Three)
+        .wl-button-property
+          .wl-value
+            = radio_button_tag 'wl_button_property_radio_button_1', value: '2', checked: false
+            %span.error Error Message
+          = label_tag 'wl_button_property_radio_button_1_2', class: 'name', caption: nil do
+            %span.text Label Four
+
+      .style-guide-example-block
+        .wl-property
+          = label_tag 'wl_button_property_text_field_2', class: 'name', caption: nil do
+            %span.text Label One Default
+            %span.requirement--required.requirement (required)
+          .wl-value
+            = text_field_tag 'wl_button_property_text_field_2', value: nil, class: 'wl-text-box'
+        .wl-button-property
+          .wl-value
+            = check_box_tag 'wl_button_property_check_box_1'
+          = label_tag 'wl_button_property_check_box_1', class: 'name', caption: nil do
+            %span.text Label Two With Enough Text to Make It Much Longer Than The Others
+        .wl-property
+          = label_tag 'wl_button_property_select_field_2', class: 'name', caption: nil do
+            %span.text Label Three
+          .wl-value
+            = select_tag 'wl_button_property_select_field_2', options: %w(One Two Three)
+        .wl-button-property
+          .wl-value
+            = check_box_tag 'wl_button_property_check_box_2'
+            %span.error Error Message
+          = label_tag 'wl_button_property_check_box_2', class: 'name', caption: nil do
+            %span.text Label Four
+
+    #wl-button-property--row.style-guide-section
+
+      %h3 wl-button-property--row
+
+      %p Inherits from #{link_to 'wl-button-property', '#wl-button-property'}. Adds left margin to align with #{link_to 'wl-property--row', '#wl-property--row'}.
+
+      .style-guide-example-block
+        .wl-property--row
+          = label_tag 'wl_button_property_row_text_field_1', class: 'name', caption: nil do
+            %span.text Label One
+          .wl-value= text_field_tag 'wl_button_property_row_text_field_1', value: nil, class: 'wl-text-box'
+        .wl-button-property--row
+          .wl-value
+            = radio_button_tag 'wl_button_property_row_radio_button_1', value: '1', checked: false
+          = label_tag 'wl_button_property_row_radio_button_1_1', class: 'name', caption: nil do
+            %span.text Label Two
+        .wl-property--row
+          =label_tag 'wl_button_property_row_select_field_1', class: 'name', caption: nil do
+            %span.text Label Three
+          .wl-value
+            = select_tag 'wl_button_property_row_select_field_1', options: %w(One Two Three)
+
+    #wl-button-property--row-wide.style-guide-section
+
+      %h3 wl-button-property--row-wide
+
+      %p Inherits from #{link_to 'wl-button-property', '#wl-button-property'}. Adds left margin to align with #{link_to 'wl-property--row-wide', '#wl-property--row-wide'}.
+
+      .style-guide-example-block
+        .wl-property--row-wide
+          = label_tag 'wl_button_property_row_wide_text_field_1', class: 'name', caption: nil do
+            %span.text Label One
+          .wl-value= text_field_tag 'wl_button_property_row_wide_text_field_1', value: nil, class: 'wl-text-box'
+        .wl-button-property--row-wide
+          .wl-value
+            = radio_button_tag 'wl_button_property_row_wide_radio_button_1', value: '1', checked: false
+          = label_tag 'wl_button_property_row_wide_radio_button_1_1', class: 'name', caption: nil do
+            %span.text Label Two
+        .wl-property--row-wide
+          =label_tag 'wl_button_property_row_wide_select_field_1', class: 'name', caption: nil do
+            %span.text Label Three
+          .wl-value
+            = select_tag 'wl_button_property_row_wide_select_field_1', options: %w(One Two Three)
+
+    #wl-property-group.style-guide-section
+
+      %h3 wl-property-group
+
+      %p Wraps two or more #{link_to 'wl-property', '#wl-property'} components (or modifiers of wl-property). The base component does not change the display on its own but is used as a placeholder for modifiers to be applied at wider breakpoints.
+
+    #wl-property-group--row.style-guide-section
+      %h3 wl-property-group--row
+
+      %p Inherits from #{link_to 'wl-property-group', '#wl-property-group'}. Displays its child components in a horizontal row.
+
+      .style-guide-example-block
+        .wl-property-group--row
+          .wl-property
+            = label_tag 'wl_property_group_row_text_field_1', class: 'name', caption: nil do
+              %span.text Label One
+              %span.requirement--required.requirement (required)
+            .wl-value
+              = text_field_tag 'wl_property_group_row_text_field_1', value: nil, class: 'error wl-text-box'
+              %label.error Error message text
+          .wl-property
+            = label_tag 'wl_property_group_row_text_field_2', class: 'name', caption: nil do
+              %span.text Label Two
+              %span.requirement--optional.requirement (optional)
+            .wl-value
+              = text_field_tag 'wl_property_group_row_text_field_2', value: nil, class: 'wl-text-box'
+
+    #wl-button-property-group.style-guide-section
+
+      %h3 wl-button-property-group
+
+      %p Wraps two or more #{link_to 'wl-button-property', '#wl-button-property'} components (or any of that component's modifiers) and reduces the negative space between them to group them visually.
+
+      .style-guide-example-block
+        .wl-property
+          = label_tag 'wl_button_property_group_text_field_1', class: 'name', caption: nil do
+            %span.text Label One
+          .wl-value= text_field_tag 'wl_button_property_group_text_field_1', value: nil, class: 'wl-text-box'
+        .wl-button-property-group
+          .wl-button-property
+            .wl-value
+              = radio_button_tag 'wl_button_property_group_radio_button_1', value: '1', checked: false
+            = label_tag 'wl_button_property_group_radio_button_1_1', class: 'name', caption: nil do
+              %span.text Label Two
+          .wl-button-property
+            .wl-value
+              = radio_button_tag 'wl_button_property_group_radio_button_1', value: '2', checked: false
+            = label_tag 'wl_button_property_group_radio_button_1_2', class: 'name', caption: nil do
+              %span.text Label Three
+          .wl-button-property
+            .wl-value
+              = radio_button_tag 'wl_button_property_group_radio_button_1', value: '3', checked: false
+            = label_tag 'wl_button_property_group_radio_button_1_3', class: 'name', caption: nil do
+              %span.text Label Four
+        .wl-property
+          =label_tag 'wl_button_property_group_select_field_1', class: 'name', caption: nil do
+            %span.text Label Five
+          .wl-value
+            = select_tag 'wl_button_property_group_select_field_1', options: %w(One Two Three)
+
+    #wl-action-group.style-guide-section
+
+      %h3 wl-action-group
+
+      %p A mini grid system for groups of actions (buttons & links). Use a <code>div</code> element for the component and wrap each action in a <code>p</code> element. Some <code>p</code> elements will be additionally wrapped with a <code>form</code> element for server-side functionality.
+
+      %p The default component stacks the actions in a single column, separating them with negative space.
+
+      .style-guide-example-block
+        .wl-action-group
+          %p= button_tag 'Button', class: 'wl-button'
+          %p= button_tag 'Text Button', class: 'wl-text-button'
+          = form_tag '#' do
+            %p= button_tag 'Button in Form', class: 'wl-button'
+          = form_tag '#' do
+            %p= button_tag 'Text Button in Form', class: 'wl-text-button'
+          %p= link_to 'Link', '#'
+
+    #wl-action-group--row.style-guide-section
+
+      %h3 wl-action-group--row
+
+      %p Inherits from #{link_to 'wl-action-group', '#wl-action-group'}. Displays the actions in a row with vertically aligned centers.
+
+      .style-guide-example-block
+        .wl-action-group--row
+          %p= button_tag 'Button', class: 'wl-button'
+          %p= button_tag 'Text Button', class: 'wl-text-button'
+          = form_tag '#' do
+            %p= button_tag 'Button in Form', class: 'wl-button'
+          = form_tag '#' do
+            %p= button_tag 'Text Button in Form', class: 'wl-text-button'
+          %p= link_to 'Link', '#'
+
+    #wl-inline-form.style-guide-section
+
+      %h3 wl-inline-form
+
+      %p Displays a single form control and a submit button side by side. Use with a <code>div</code> or <code>form</code> element. The component should have two child <code>p</code> elements. The first <code>p</code> element may be a #{link_to 'wl-value', '#wl-value'} if the form control needs to be grouped with an error message, note, or other content.
+
+      .style-guide-example-block
+        = form_tag '#', class: 'wl-inline-form' do
+          %p.wl-value
+            = text_field_tag 'wl_inline_form_field', value: nil, class: 'wl-text-box error'
+            %span.error Error Message Text
+          %p= button_tag 'Submit', class: 'wl-button'
+
+    #ui-helper-hidden-accessible.style-guide-section
+
+      %h3 ui-helper-hidden-accessible
+
+      %p A component alias for the #{link_to 'visually-hidden', '#visually-hidden'} SCSS helper. Used by jQuery UI widgets.
+
+    #ui-widget-overlay.style-guide-section
+
+      %h3 ui-widget-overlay
+
+      %p A jQuery UI widget overlay instance. Displayed behind/under a #{link_to 'ui-dialog', '#ui-dialog'}. Refer to #{link_to 'ui-dialog', '#ui-dialog'} for example.
+
+    #ui-dialog.style-guide-section
+
+      %h3 ui-dialog
+
+      %p A jQuery UI dialog widget instance. Use #{link_to 'WEBLINC.dialogs.openDialog', '#dialogs-open-dialog'} and #{link_to 'WEBLINC.ajaxDialogButtons.init', '#ajax-dialog-buttons-init'} to open a ui-dialog.
+
+      %p= button_tag 'Click for Example 1', type: 'button', class: 'style-guide-ui-dialog-example wl-button'
+      %p= link_to 'Click for Example 2', '#', data: { ajax_dialog_button: '' }
+
+  #scss-helpers.style-guide-section
+
+    %h2 SCSS Helpers
+
+    #adjust-internal-icon.style-guide-section
+
+      %h3 @mixin adjust-internal-icon($size)
+
+      %p Allows for a child icon to be easily resized on the fly. Additionally, a content block can be specified in order to make more granular changes to an icon. Intended to be used on the icon's parent.
+
+      %table.wl-table
+        %thead
+          %tr
+            %th Parameter
+            %th Description
+            %th Required?
+            %th Default Value
+        %tbody
+          %tr
+            %td $size
+            %td A pixel value, ie. <code>20px</code>
+            %td Yes
+            %td nil
+
+      %pre.style-guide-code-block
+        %code
+          :preserve
+            // SCSS
+            .cart-icon {
+              @include adjust-internal-icon(20px) {
+                color: $cart-icon-color;
+              };
+              float: right;
+            }
+
+            /* CSS */
+            .cart-icon [class*='wl-icon'] {
+                width: 20px;
+                height: 20px;
+                font-size: 20px;
+                color: $ff0000;
+            }
+
+            .cart-icon {
+                float: right;
+            }
+
+    #box-sizing.style-guide-section
+
+      %h3 @mixin box-sizing($value)
+
+      %p Adds vendor prefixes for CSS <code>box-sizing</code>.
+
+      %table.wl-table
+        %thead
+          %tr
+            %th Parameter
+            %th Description
+            %th Required?
+            %th Default Value
+        %tbody
+          %tr
+            %td $value
+            %td Any valid CSS value for the <code>box-sizing</code> property.
+            %td Yes
+            %td nil
+
+      %pre.style-guide-code-block
+        %code
+          :preserve
+            // SCSS
+            .box {
+              @include box-sizing(border-box);
+            }
+
+            /* CSS */
+            .box {
+                -webkit-box-sizing: border-box;
+                   -moz-box-sizing: border-box;
+                        box-sizing: border-box;
+            }
+
+    #cf.style-guide-section
+
+      %h3 @mixin cf
+
+      %p Applies a CSS clearfix technique to force the element to contain floats.
+
+      %p No parameters.
+
+      %pre.style-guide-code-block
+        %code
+          :preserve
+            // SCSS
+            .row {
+              @include cf;
+            }
+
+            /* CSS */
+            .row {
+                display: block;
+            }
+            .row:before,
+            .row:after {
+                content: ' ';
+                display: table;
+            }
+            .row:after {
+                clear: both;
+            }
+
+    #font-smoothing.style-guide-section
+
+      %h3 @mixin font-smoothing
+
+      %p Applies vendor-specific properties to smooth fonts.
+
+      %p No parameters.
+
+      %pre.style-guide-code-block
+        %code
+          :preserve
+            // SCSS
+            .wl-icon {
+              @include font-smoothing;
+            }
+
+            /* CSS */
+            .wl-icon {
+                -webkit-font-smoothing: antialiased;
+                -moz-osx-font-smoothing: grayscale;
+            }
+
+
+    #ir.style-guide-section
+
+      %h3 @mixin ir
+
+      %p Implements a CSS image replacement technique to hide the element's content and show a background image.
+
+      %p No parameters.
+
+      %pre.style-guide-code-block
+        %code
+          :preserve
+            // SCSS
+            .icon {
+              @include ir;
+            }
+
+            /* CSS */
+            .icon {
+                display: block;
+                text-indent: 100%;
+                white-space: nowrap;
+                overflow: hidden;
+            }
+
+    #opacity.style-guide-section
+
+      %h3 @mixin opacity($value)
+
+      %p Adds proprietary code for opacity support in IE < 9.
+
+      %table.wl-table
+        %thead
+          %tr
+            %th Parameter
+            %th Description
+            %th Required?
+            %th Default Value
+        %tbody
+          %tr
+            %td $value
+            %td Any valid CSS value for the <code>opacity</code> property.
+            %td Yes
+            %td nil
+
+      %pre.style-guide-code-block
+        %code
+          :preserve
+            // SCSS
+            .widget {
+              @include opacity(0.5);
+            }
+
+            /* CSS */
+            .widget {
+                filter: progid:DXImageTransform.Microsoft.Alpha(opacity=50); // IE8
+                opacity: 0.5;
+            }
+
+    #px-to-percent.style-guide-section
+
+      %h3 @function px-to-percent($target, $context)
+
+      %p Calculates percentages from pixel values. Used to create responsive layouts.
+
+      %table.wl-table
+        %thead
+          %tr
+            %th Parameter
+            %th Description
+            %th Required?
+            %th Default Value
+        %tbody
+          %tr
+            %td $target
+            %td An integer representing the target pixel value to be converted, such as a column width.
+            %td Yes
+            %td nil
+          %tr
+            %td $context
+            %td An integer representing the context's pixel value, such as the column parent's width.
+            %td Yes
+            %td nil
+
+      %pre.style-guide-code-block
+        %code
+          :preserve
+            // SCSS
+            .column {
+              width: px-to-percent(500, 1000);
+            }
+
+            /* CSS */
+            .column {
+                width: 50%;
+            }
+
+    #respond-to.style-guide-section
+
+      %h3 @mixin respond-to($breakpoint)
+
+      %p Creates an <code>@media</code> block for a particular <code>min-width</code>.
+
+      %table.wl-table
+        %thead
+          %tr
+            %th Parameter
+            %th Description
+            %th Required?
+            %th Default Value
+        %tbody
+          %tr
+            %td $breakpoint
+            %td Any valid CSS value for the <code>min-width</code> property, however a variable representing a pre-defined breakpoint is recommended.
+            %td Yes
+            %td nil
+
+      %pre.style-guide-code-block
+        %code
+          :preserve
+            // SCSS
+            $medium-breakpoint: 760px;
+            .widget {
+              display: none;
+              @include respond-to($medium-breakpoint) {
+                display: block;
+              }
+            }
+
+            /* CSS */
+            .widget {
+                display: none;
+            }
+            @media screen and (min-width: 760px) {
+                .widget {
+                    display: block;
+                }
+            }
+
+    #visually-hidden.style-guide-section
+
+      %h3 @mixin visually-hidden
+
+      %p Visually hides an element off screen, keeping it accessible to assitive technology.
+
+      %p No parameters.
+
+      %pre.style-guide-code-block
+        %code
+          :preserve
+            // SCSS
+            .help {
+              @include visually-hidden;
+            }
+
+            /* CSS */
+            .help {
+                position: absolute;
+                left: -5000px;
+            }
+
+  #javascript-library-functions.style-guide-section
+
+    %h2 JavaScript Library: Public Functions
+
+    #dom-ready.style-guide-section
+
+      %h3 WEBLINC.modules.domReady($scope)
+
+      %p Executes the functions in the "DOM ready" queue. Functions are added to the queue via #{link_to('WEBLINC.modules.onDomReady', '#on-dom-ready')}. <code>$scope</code> is passed as an argument to each function in the queue.
+
+      %table.wl-table
+        %thead
+          %tr
+            %th Parameter
+            %th Description
+            %th Required?
+        %tbody
+          %tr
+            %td $scope
+            %td A jQuery object (collection) used to limit the scope of DOM queries.
+            %td No, defaults to $(document)
+
+      %pre.style-guide-code-block
+        %code
+          :preserve
+            WEBLINC.modules.domReady();
+
+    #dom-update.style-guide-section
+
+      %h3 WEBLINC.modules.domUpdate($scope)
+
+      %p Executes the functions in the "DOM update" queue. Functions are added to the queue via #{link_to('WEBLINC.modules.onDomUpdate', '#on-dom-update')}. <code>$scope</code> is passed as an argument to each function in the queue.
+
+      %table.wl-table
+        %thead
+          %tr
+            %th Parameter
+            %th Description
+            %th Required?
+        %tbody
+          %tr
+            %td $scope
+            %td A jQuery object (collection) used to limit the scope of DOM queries.
+            %td No, defaults to $(document)
+
+      %pre.style-guide-code-block
+        %code
+          :preserve
+            WEBLINC.modules.domUpdate($someNewDom);
+
+    #on-dom-ready.style-guide-section
+
+      %h3 WEBLINC.modules.onDomReady(func, [func2,] […,])
+
+      %p Adds each argument to the "DOM ready" function queue. The queue is executed when #{link_to('WEBLINC.modules.domReady', '#dom-ready')} is invoked.
+
+      %table.wl-table
+        %thead
+          %tr
+            %th Parameter
+            %th Description
+            %th Required?
+        %tbody
+          %tr
+            %td func
+            %td A function to add to the queue.
+            %td First argument is required. Additional arguments are optional.
+
+      %pre.style-guide-code-block
+        %code
+          :preserve
+            WEBLINC.modules.onDomReady(init); // adds init function to queue
+            WEBLINC.modules.onDomReady(setup, init); // adds setup and init functions to queue
+            WEBLINC.modules.onDomReady('hello'); // error: arguments must be functions
+
+    #on-dom-update.style-guide-section
+
+      %h3 WEBLINC.modules.onDomUpdate(func, [func2,] […,])
+
+      %p Adds each argument to the "DOM update" function queue. The queue is executed when #{link_to('WEBLINC.modules.domReady', '#dom-ready')} is invoked.
+
+      %table.wl-table
+        %thead
+          %tr
+            %th Parameter
+            %th Description
+            %th Required?
+        %tbody
+          %tr
+            %td func
+            %td A function to add to the queue.
+            %td First argument is required. Additional arguments are optional.
+
+      %pre.style-guide-code-block
+        %code
+          :preserve
+            WEBLINC.modules.onDomUpdate(init); // adds init function to queue
+            WEBLINC.modules.onDomUpdate(setup, init); // adds setup and init functions to queue
+            WEBLINC.modules.onDomUpdate('hello'); // error: arguments must be functions
+
+  #javascript-module-functions-and-properties.style-guide-section
+
+    %h2 JavaScript Modules: Public Functions & Properties
+
+    #ajax-dialog-buttons-init.style-guide-section
+
+      %h3 WEBLINC.ajaxDialogButtons.init($scope)
+
+      %p Queries <code>$scope</code> for anchor elements with a <code>data-ajax-dialog-button</code> attribute. If found, a click listener is attached to each. On click, if the viewport is wide enough, the destination of the anchor is requested via ajax and displayed within a dialog via #{link_to 'WEBLINC.dialogs.openDialog', '#dialogs-open-dialog'}.
+
+      %table.wl-table
+        %thead
+          %tr
+            %th Parameter
+            %th Description
+            %th Required?
+        %tbody
+          %tr
+            %td $scope
+            %td A jQuery object (collection) used to limit the scope of DOM queries.
+            %td No, defaults to $(document)
+
+      %pre.style-guide-code-block
+        %code
+          :preserve
+            WEBLINC.ajaxDialogButtons.init();
+
+    #break-points-init.style-guide-section
+
+      %h3 WEBLINC.breakPoints.init()
+
+      %p Compares the current viewport width to a set of developer-defined, named breakpoints (viewport widths). The names of those that match are stored in an array. If the viewport is resized, the array is updated.
+
+      %p If the device does not have media query support, a single developer-defined value is always stored as the only match and the value is never updated. Currently, the only supported device that fits this criterium is IE 8 on Windows.
+
+      %p If the device has media query support but does not have matchMedia support, an array of developer-defined values is always stored as the set of matches and the values are never updated. Currently, the only supported device that fits these criteria is IE 9 on Windows.
+
+      %p No parameters.
+
+      %pre.style-guide-code-block
+        %code
+          :preserve
+            WEBLINC.breakPoints.init();
+
+    #break-points-currently-less-than.style-guide-section
+
+      %h3 WEBLINC.breakPoints.currentlyLessThan(widthName)
+
+      %p Returns <code>true</code> if the current viewport width is less than the width of <code>widthName</code>, otherwise <code>false</code>. Typically used to return early from a function if the viewport is narrower than the minimum width required for a feature to be applicable.
+
+      %table.wl-table
+        %thead
+          %tr
+            %th Parameter
+            %th Description
+            %th Required?
+        %tbody
+          %tr
+            %td widthName
+            %td A string representing a pre-defined viewport width, like 'small' or 'medium'. The list of possible values is defined in the constant <code>WIDTHS</code> inside <code>WEBLINC.breakPoints</code>.
+            %td Yes
+
+      %pre.style-guide-code-block
+        %code
+          :preserve
+            WEBLINC.breakPoints.currentlyLessThan('small'); // always false since small is the default break point
+
+    #cookies-create.style-guide-section
+
+      %h3 WEBLINC.cookies.create(name, value, days)
+
+      %p Creates a cookie.
+
+      %table.wl-table
+        %thead
+          %tr
+            %th Parameter
+            %th Description
+            %th Required?
+        %tbody
+          %tr
+            %td name
+            %td A string to name the cookie.
+            %td Yes
+          %tr
+            %td value
+            %td Any JavaScript value. Will be converted to a string.
+            %td Yes
+          %tr
+            %td days
+            %td An integer to set the number of days until the cookie expires.
+            %td Yes
+
+      %pre.style-guide-code-block
+        %code
+          :preserve
+            WEBLINC.cookies.create('email_signup_dialog', true, 30);
+
+    #cookies-read.style-guide-section
+
+      %h3 WEBLINC.cookies.read(name)
+
+      %p Returns the value of the cookie with the given <code>name</code>.
+
+      %table.wl-table
+        %thead
+          %tr
+            %th Parameter
+            %th Description
+            %th Required?
+        %tbody
+          %tr
+            %td name
+            %td The name of the cookie to retrieve. A string.
+            %td Yes
+
+      %pre.style-guide-code-block
+        %code
+          :preserve
+            WEBLINC.cookies.read('email_signup_dialog'); // true
+
+    #deletion-forms.style-guide-section
+
+      %h3 WEBLINC.deletionForms.init($scope)
+
+      %p Queries <code>$scope</code> for form elements with a <code>data-deletion-form</code> attribute. If found, a submit listener is attached to each. On click or ENTER, a default browser confirmation box will be triggered. If Cancel is clicked, the deletion is prevented. If OK is clicked, the deletion proceeds.
+
+      %table.wl-table
+        %thead
+          %tr
+            %th Parameter
+            %th Description
+            %th Required?
+        %tbody
+          %tr
+            %td $scope
+            %td A jQuery object (collection) used to limit the scope of DOM queries.
+            %td No, defaults to $(document)
+
+      %pre.style-guide-code-block
+        %code
+          :preserve
+            WEBLINC.deletionForms.init();
+
+    #dialogs-open-dialog.style-guide-section
+
+      %h3 WEBLINC.dialogs.openDialog(content, uiDialogOptions, shouldTriggerDomUpdate)
+
+      %p If <code>content</code> is a jQuery collection, opens <code>content</code> in a jQuery UI dialog with the options set in <code>uiDialogOptions</code>. If <code>content</code> is a jQuery promise object, opens a loading dialog until the promise resolves. After the promise resolves, opens the content passed in from the promise in a dialog.
+
+      %table.wl-table
+        %thead
+          %tr
+            %th Parameter
+            %th Description
+            %th Required?
+        %tbody
+          %tr
+            %td content
+            %td A jQuery collection object or jQuery promise object. If a jQuery promise object, the <code>done</code> callback should receive a jQuery collection as its first argument.
+            %td Yes
+          %tr
+            %td uiDialogOptions
+            %td An options object to extend the default options of a jQuery UI dialog widget.
+            %td No
+          %tr
+            %td shouldTriggerDomUpdate
+            %td <code>false</code> to prevent calling #{link_to('WEBLINC.modules.domUpdate', '#dom-update')} on the newly inserted dialog content, otherwise, <code>true</code> (default).
+            %td No, defaults to <code>true</code>
+
+      %pre.style-guide-code-block
+        %code
+          :preserve
+            WEBLINC.dialogs.openDialog(myPromise); // loading dialog until promise resolves
+            WEBLINC.dialogs.openDialog($myCollection); // opens dialog immediately
+
+    #flash-message-dismiss-buttons-init.style-guide-section
+
+      %h3 WEBLINC.flashMessageDismissButtons.init($scope)
+
+      %p Injects a button into each #{link_to('wl-message', '#wl-message')} component. When clicked, the component is removed from the DOM.
+
+      %table.wl-table
+        %thead
+          %tr
+            %th Parameter
+            %th Description
+            %th Required?
+        %tbody
+          %tr
+            %td $scope
+            %td A jQuery object (collection) used to limit the scope of DOM queries.
+            %td No, defaults to $(document)
+
+      %pre.style-guide-code-block
+        %code
+          :preserve
+            WEBLINC.flashMessageDismissButtons.init($(document));
+
+    #form-submitting-controls-init.style-guide-section
+
+      %h3 WEBLINC.formSubmittingControls.init($scope)
+
+      %p Queries <code>$scope</code> for elements with a <code>data-form-submitting-control</code> attribute. Listens for change and input on those controls. When those events occur, the closest ancestor <code>form</code> is submitted.
+
+      %table.wl-table
+        %thead
+          %tr
+            %th Parameter
+            %th Description
+            %th Required?
+        %tbody
+          %tr
+            %td $scope
+            %td A jQuery object (collection) used to limit the scope of DOM queries.
+            %td No, defaults to $(document)
+
+      %pre.style-guide-code-block
+        %code
+          :preserve
+            WEBLINC.formSubmittingControls.init($(document));
+
+    #form-validation-init.style-guide-section
+
+      %h3 WEBLINC.formValidation.init($scope)
+
+      %p Configures and initializes the jQuery validation plugin for all <code>form</code> elements wihin <code>$scope</code>.
+
+      %table.wl-table
+        %thead
+          %tr
+            %th Parameter
+            %th Description
+            %th Required?
+        %tbody
+          %tr
+            %td $scope
+            %td A jQuery object (collection) used to limit the scope of DOM queries.
+            %td No, defaults to $(document)
+
+      %pre.style-guide-code-block
+        %code
+          :preserve
+            WEBLINC.formValidation.init($(document));
+
+    #input-placeholders-init.style-guide-section
+
+      %h3 WEBLINC.inputPlaceholders.init()
+
+      %p Queries <code>$scope</code> for <code>input</code> and <code>textarea</code> elements with a <code>placeholder</code> attribute. Initializes the jQuery placeholder plugin on each. The plugin does nothing if the placeholder attribute is natively supported.
+
+      %table.wl-table
+        %thead
+          %tr
+            %th Parameter
+            %th Description
+            %th Required?
+        %tbody
+          %tr
+            %td $scope
+            %td A jQuery object (collection) used to limit the scope of DOM queries.
+            %td No, defaults to $(document)
+
+      %pre.style-guide-code-block
+        %code
+          :preserve
+            WEBLINC.inputPlaceholders.init();
+
+    #popup-buttons-init.style-guide-section
+
+      %h3 WEBLINC.popupButtons.init($scope)
+
+      %p Queries <code>$scope</code> for links with a <code>data-popup-button</code> attribute. Prevents the default action and opens each in a popup window.
+
+      %table.wl-table
+        %thead
+          %tr
+            %th Parameter
+            %th Description
+            %th Required?
+        %tbody
+          %tr
+            %td $scope
+            %td A jQuery object (collection) used to limit the scope of DOM queries.
+            %td No, defaults to $(document)
+
+      %pre.style-guide-code-block
+        %code
+          :preserve
+            WEBLINC.popupButtons.init($(document));
+
+    #query-string-get-value.style-guide-section
+
+      %h3 WEBLINC.queryString.getValue(name)
+
+      %p Returns the value of the query string parameter specified by <code>name</code>.
+
+      %table.wl-table
+        %thead
+          %tr
+            %th Parameter
+            %th Description
+            %th Required?
+        %tbody
+          %tr
+            %td name
+            %td The query string parameter whose value should be returned. A string.
+            %td Yes
+
+      %pre.style-guide-code-block
+        %code
+          :preserve
+            // if url is example.com/index.html?test=abc
+            WEBLINC.queryString.getValue('test'); // 'abc'
+
+    #style-guide-init.style-guide-section
+
+      %h3 WEBLINC.styleGuide.init()
+
+      %p Initializes examples for the style guide page.
+
+      %table.wl-table
+        %thead
+          %tr
+            %th Parameter
+            %th Description
+            %th Required?
+        %tbody
+          %tr
+            %td $scope
+            %td A jQuery object (collection) used to limit the scope of DOM queries.
+            %td No, defaults to $(document)
+
+      %pre.style-guide-code-block
+        %code
+          :preserve
+            WEBLINC.styleGuide.init();
