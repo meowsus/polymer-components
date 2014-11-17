@@ -16,7 +16,7 @@
     = stylesheet_link_tag 'styles', media: 'all'
     = javascript_include_tag 'top'
 
-    - components = ['font-roboto/roboto', 'core-header-panel/core-header-panel', 'core-toolbar/core-toolbar', 'paper-tabs/paper-tabs']
+    - components = ['font-roboto/roboto', 'core-header-panel/core-header-panel', 'core-toolbar/core-toolbar', 'paper-tabs/paper-tabs', 'post-card']
     - components.each do |component|
       %link{ rel: 'import', href: "/components/#{component}.html" }
 

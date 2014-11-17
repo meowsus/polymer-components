@@ -1,0 +1,45 @@
+- components = ['polymer/polymer', 'core-icon-button/core-icon-button']
+- components.each do |component|
+  %link{ rel: 'import', href: "#{component}.html"}
+
+%polymer-element{ name: 'post-card' }
+  %template
+
+    :css
+      :host {
+        display: block;
+        position: relative;
+        background-color: white;
+        padding: 20px;
+        width: 95%;
+        font-size: 1.2rem;
+        font-weight: 300;
+        margin: 0 2.5%;
+      }
+
+      .card-header {
+        margin-bottom: 10px;
+      }
+
+      polyfill-next-selector { content: '.card-header h2'; }
+      .card-header ::content h2 {
+        margin: 0;
+        font-size: 1.8rem;
+        font-weight: 300;
+      }
+
+      polyfill-next-selector { content: '.card-header img'; }
+      .card-header ::content img {
+        width: 70px;
+        border-radius: 50%;
+        margin: 10px;
+      }
+
+    .card-header{ layout: true, horizontal: true, center: true }
+      %content{ select: 'img' }
+      %content{ select: 'h2' }
+
+    %content
+
+  :javascript
+    Polymer({});

@@ -38,7 +38,13 @@ title: Polymer test
       %paper-tab{ name: 'all' } All
       %paper-tab{ name: 'favorites' } Favorites
 
-  / main page content will go here
+  .container{ layout: true, vertical: true, center: true }
+    %post-card
+      %img{ width: 70, height: 70, src: 'polymer-tutorial-master/images/avatar-07.svg' }
+      %h2 Another Developer
+      %p I'm composing with shadow DOM!
+
+</div>
 
 :javascript
   var tabs = document.querySelector('paper-tabs');
